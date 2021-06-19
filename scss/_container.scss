@@ -1,0 +1,74 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #485461;
+    &.active{
+        .bar{
+            transform: translate(-50%,-50%) rotate(360deg) !important;
+            background-color: transparent !important;
+            &:before{
+                transform: translateY(0) rotate(45deg) !important;
+            }
+            &::after{
+                transform: translateY(0) rotate(-45deg) !important;
+            }
+        }
+        .main{
+            animation: main-container 0.5s ease-in-out;
+            transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+        }
+        .links{
+            a{
+                animation:appear 0.5s forwards linear 0.2s;
+            }
+        }
+        .shadow.shadow1{
+            animation: shadow1 0.6s linear forwards;
+            transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+        }
+        .shadow.shadow2{
+            animation: shadow2 0.6s linear forwards;
+            transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+        }
+    }
+}
+@keyframes main-container{
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+}
+@keyframes appear{
+    from{
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes shadow1{
+    0%{
+        transform: translate(0);
+    }
+    5%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+    100%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    }
+}
+@keyframes shadow2{
+    0%{
+        transform: translate(0);
+    }
+    20%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+    100%{
+        transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+    }
+}

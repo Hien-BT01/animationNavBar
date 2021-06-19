@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #485461;
+}
+.container.active .bar {
+  transform: translate(-50%, -50%) rotate(360deg) !important;
+  background-color: transparent !important;
+}
+.container.active .bar:before {
+  transform: translateY(0) rotate(45deg) !important;
+}
+.container.active .bar::after {
+  transform: translateY(0) rotate(-45deg) !important;
+}
+.container.active .main {
+  animation: main-container 0.5s ease-in-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+.container.active .links a {
+  animation: appear 0.5s forwards linear 0.2s;
+}
+.container.active .shadow.shadow1 {
+  animation: shadow1 0.6s linear forwards;
+  transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+.container.active .shadow.shadow2 {
+  animation: shadow2 0.6s linear forwards;
+  transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+@keyframes main-container {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes shadow1 {
+  0% {
+    transform: translate(0);
+  }
+  5% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+}
+@keyframes shadow2 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+}
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1.5rem 0;
+}
+.nav-bar .menu {
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.nav-bar .menu .logo {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+.nav-bar .menu .logo span {
+  font-weight: 400;
+}
+.nav-bar .menu .hamburger-menu {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #e9e7e7;
+  cursor: pointer;
+  position: relative;
+}
+.nav-bar .menu .hamburger-menu .bar {
+  height: 0.2rem;
+  background-color: #382f2fea;
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s linear;
+  transform: translate(-50%, -50%);
+}
+.nav-bar .menu .hamburger-menu .bar::after, .nav-bar .menu .hamburger-menu .bar::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.2rem;
+  background-color: #382f2fea;
+  transition: all 0.3s linear;
+}
+.nav-bar .menu .hamburger-menu .bar:after {
+  transform: translateY(8px);
+}
+.nav-bar .menu .hamburger-menu .bar::before {
+  transform: translateY(-8px);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  background-color: #fefefe;
+  z-index: 5;
+  overflow: hidden;
+  transform-origin: left;
+  transition: all 0.5s linear;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.main header {
+  min-height: 100vh;
+  width: 100%;
+  background: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.main header .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(43, 51, 59, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main header .overlay .inner {
+  max-width: 50rem;
+  text-align: center;
+  width: 100%;
+  color: #fefefe;
+  padding: 0 2.4rem;
+}
+.main header .overlay .inner .title {
+  font-size: 4rem;
+  margin-bottom: 1.2rem;
+}
+.main header .overlay .inner p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+.main header .overlay .inner .btn {
+  outline: none;
+  border: none;
+  padding: 0.8rem 2.4rem;
+  margin-top: 1.2rem;
+  border-radius: 24px;
+  font-size: 2rem;
+  font-weight: 550;
+  background-color: rgba(25, 116, 235, 0.863);
+  color: #fefefe;
+  cursor: pointer;
+  transition: all 0.5s linear;
+}
+.main header .overlay .inner .btn:hover {
+  background-color: #59adda;
+}
+
+.links {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 3;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.links ul li a {
+  color: #fefefe;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  transition: all 0.3s linear;
+  padding: 0.8rem 0;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: all 0.3s linear;
+  background-color: #fefefe;
+}
+.shadow.shadow1 {
+  opacity: 0.15;
+}
+.shadow.shadow2 {
+  opacity: 0.1;
+}
+
+/*# sourceMappingURL=style.css.map */

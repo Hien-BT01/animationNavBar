@@ -1,0 +1,27 @@
+.links{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height:100vh;
+    z-index: 3;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul{
+        li{
+            a{
+                color: #fefefe;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: 0.2rem;
+                transition: all 0.3s linear;
+                padding: 0.8rem 0;
+                display: inline-block;
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+        }
+    }
+}
